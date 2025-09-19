@@ -1725,3 +1725,23 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
+// Mobile Installation Feature
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const installBtn = document.createElement('button');
+  installBtn.textContent = '📱 Install App';
+  installBtn.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#667eea;color:white;border:none;padding:12px 20px;border-radius:25px;cursor:pointer;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.3);';
+  installBtn.addEventListener('click', async function() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBtn.remove();
+    }
+  });
+  document.body.appendChild(installBtn);
+});
+
