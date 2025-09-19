@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindPal - Mental Health App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Mode Selection Screen -->
+    <div id="modeSelection" class="mode-selection">
+        <div class="mode-container">
+            <h1 id="appTitle">🧠 MindPal</h1>
+            <p id="selectModeText">Select Your Mode</p>
+            
+            <div class="language-selector">
+                <select id="mainLanguageSelect" class="form-control">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="ta">🏴 தமிழ்</option>
+                    <option value="hi">🇮🇳 हिंदी</option>
+                    <option value="kn">🟨 ಕನ್ನಡ</option>
+                    <option value="te">🟡 తెలుగు</option>
+                </select>
+            </div>
+            
+            <div class="mode-cards">
+                <div class="mode-card child-card" data-mode="child">
+                    <div class="mode-icon">🌈</div>
+                    <h3 id="childModeText">Child Mode</h3>
+                    <p id="childDescText">Fun games and activities for kids</p>
+                </div>
+                
+                <div class="mode-card adult-card" data-mode="adult">
+                    <div class="mode-icon">🧘</div>
+                    <h3 id="adultModeText">Adult Mode</h3>
+                    <p id="adultDescText">Professional tools for mental wellness</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="mainApp" class="app-container hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <h1 id="headerTitle">🧠 MindPal</h1>
+            </div>
+            <div class="header-right">
+                <select id="languageSelect" class="form-control language-select">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="ta">🏴 தமிழ்</option>
+                    <option value="hi">🇮🇳 हिंदी</option>
+                    <option value="kn">🟨 ಕನ್ನಡ</option>
+                    <option value="te">🟡 తెలుగు</option>
+                </select>
+                <button class="btn btn--outline" id="switchModeBtn">Switch Mode</button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="home" id="homeTab">🏠 Home</button>
+            <button class="tab-btn" data-tab="games" id="gamesTab">🎮 Games</button>
+            <button class="tab-btn" data-tab="activities" id="activitiesTab">🌟 Activities</button>
+            <button class="tab-btn" data-tab="mood" id="moodTab">😊 Mood</button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="mainContent">
+            <!-- Content will be dynamically loaded here -->
+        </main>
+    </div>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal hidden">
+        <div class="modal-content game-modal-content">
+            <div class="game-header">
+                <button class="btn btn--outline" id="backBtn">← Back</button>
+                <h3 id="gameTitle">Game</h3>
+                <div class="game-stats">
+                    <span id="gameScore">Score: 0</span>
+                    <span id="gameTimer">Time: 0:00</span>
+                </div>
+            </div>
+            <div class="game-area" id="gameArea">
+                <!-- Game content will be loaded here -->
+            </div>
+            <div class="game-controls" id="gameControls">
+                <!-- Game controls will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Activity Modal -->
+    <div id="activityModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="activityTitle">Activity</h3>
+                <button class="btn btn--outline" id="closeActivityBtn">✖</button>
+            </div>
+            <div class="modal-body" id="activityContent">
+                <!-- Activity content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
